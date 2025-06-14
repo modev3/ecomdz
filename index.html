@@ -8,142 +8,44 @@
 <link rel="icon" href="images/logo.png">
 <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
 <style>
-:root {
-  --modern-blue:     #6393fa;
-  --modern-dark:     #182444;
-  --modern-gray:     #f5f7fa;
-  --modern-mint:     #82e9ce;
-  --modern-lavender: #ebd9fc;
-  --modern-warm:     #ffb8a2;
-  --modern-white:    #fff;
-}
+:root { --modern-blue: #38ba59; --modern-dark: #182444; --modern-gray: #f5f7fa; --modern-mint: #82e9ce; --modern-lavender: #ebd9fc; --modern-warm: #ffb8a2; --modern-white: #fff; }
 * {margin:0;padding:0;box-sizing:border-box;}
-body {
-  font-family:'Montserrat',Arial,sans-serif;
-  background: var(--modern-gray);
-  color: var(--modern-dark);
-  line-height:1.6;
-}
-header {
-  background:linear-gradient(120deg,var(--modern-dark) 68%,var(--modern-blue) 100%);
-  color:#fff;
-  padding-bottom:60px;
-}
-nav {
-  display:flex;justify-content:space-between;align-items:center;
-  padding:24px 8vw;background:transparent;position:relative;
-}
+body { font-family:'Montserrat',Arial,sans-serif; background: var(--modern-gray); color: var(--modern-dark); line-height:1.6; }
+header { background:linear-gradient(120deg,var(--modern-dark) 68%,var(--modern-blue) 100%); color:#fff; padding-bottom:60px; }
+nav { display:flex;justify-content:space-between;align-items:center; padding:24px 8vw;background:transparent;position:relative; }
 .logo img {height:48px;width:auto;}
-nav ul {
-  list-style:none;display:flex;gap:32px;
-}
-nav li a {
-  color:var(--modern-white);
-  text-decoration:none;
-  font-weight:700;
-  transition:color .28s cubic-bezier(.77,0,.18,1),text-shadow .28s;
-  position:relative;
-  letter-spacing:.03em;
-  text-shadow:0 2px 10px #18244455;
-}
-nav li a::after {
-  content:'';
-  display:block;
-  position:absolute;
-  left:45%;bottom:-4px;width:0;height:2.5px;
-  background:linear-gradient(90deg,var(--modern-dark) 0%,var(--modern-blue) 100%);
-  transition:all .18s;
-  border-radius:99px;
-}
-nav li a:hover,nav li a:focus {
-  color:var(--modern-mint);
-  text-shadow:0 0 14px #82e9ce77,0 1px 0 #fff2;
-}
+nav ul { list-style:none;display:flex;gap:32px; }
+nav li a { color:var(--modern-white); text-decoration:none; font-weight:700; transition:color .28s cubic-bezier(.77,0,.18,1),text-shadow .28s; position:relative; letter-spacing:.03em; text-shadow:0 2px 10px #18244455; }
+nav li a::after { content:''; display:block; position:absolute; left:45%;bottom:-4px;width:0;height:2.5px; background:linear-gradient(90deg,var(--modern-dark) 0%,var(--modern-blue) 100%); transition:all .18s; border-radius:99px; }
+nav li a:hover,nav li a:focus { color:var(--modern-mint); text-shadow:0 0 14px #82e9ce77,0 1px 0 #fff2; }
 nav li a:hover::after,nav li a:focus::after {left:12%;width:76%;}
-
-.hamburger {
-  display:none;flex-direction:column;justify-content:center;align-items:center;
-  width:46px;height:46px;
-  background:rgba(255,255,255,0.08);border-radius:12px;border:none;cursor:pointer;z-index:1081;
-  transition:background .18s;
-}
+.hamburger { display:none;flex-direction:column;justify-content:center;align-items:center; width:46px;height:46px; background:rgba(255,255,255,0.08);border-radius:12px;border:none;cursor:pointer;z-index:1081; transition:background .18s; }
 .hamburger:focus {outline:2.5px solid var(--modern-blue);}
 .hamburger svg {display:block;}
-.hamburger[aria-expanded="true"] {
-  background:linear-gradient(135deg,var(--modern-mint) 20%,var(--modern-dark) 90%);
-}
-
+.hamburger[aria-expanded="true"] { background:linear-gradient(135deg,var(--modern-mint) 20%,var(--modern-dark) 90%); }
 @media (max-width:850px){
-  .hamburger{display:flex;}
-  nav ul{
-    position:fixed;top:0;right:0;
-    height:100dvh;width:85vw;min-width:210px;max-width:340px;
-    background: linear-gradient(121deg,var(--modern-dark) 62%,var(--modern-blue) 130%);
-    flex-direction:column;align-items:flex-start;
-    padding:44px 34px 32px 26px;gap:22px;z-index:1080;
-    transition:transform .38s cubic-bezier(.77,0,.18,1),opacity .17s;
-    transform:translateX(100%);opacity:0;
-    box-shadow: -4px 0 24px 0 #6393fa80, -1px 0 9px 0 #18244427;
-  }
-  nav ul.open {transform:translateX(0%);opacity:1;pointer-events:auto;}
-  nav ul li {width:100%;}
-  nav ul li a {font-size:1.14rem;display:block;padding:12px 0;width:100%;}
-  nav ul li a {transition:color .18s,background .21s;}
-  nav ul li a:hover,nav ul li a:focus {
-    background:linear-gradient(94deg,var(--modern-dark) 55%,var(--modern-blue) 137%);
-    color:var(--modern-mint);
-    border-radius:13px;
-    padding-left:13px;
-    text-shadow:0 4px 12px #6393fa33;
-  }
-  .menu-overlay {
-    content:"";position:fixed;top:0;left:0;right:0;bottom:0;
-    background:rgba(24,36,68,0.17);z-index:1079;display:none;
-  }
-  .menu-overlay.show {display:block;}
+.hamburger{display:flex;}
+nav ul{ position:fixed;top:0;right:0; height:100dvh;width:85vw;min-width:210px;max-width:340px; background: linear-gradient(121deg,var(--modern-dark) 62%,var(--modern-blue) 130%); flex-direction:column;align-items:flex-start; padding:44px 34px 32px 26px;gap:22px;z-index:1080; transition:transform .38s cubic-bezier(.77,0,.18,1),opacity .17s; transform:translateX(100%);opacity:0; box-shadow: -4px 0 24px 0 #38ba5980, -1px 0 9px 0 #18244427; }
+nav ul.open {transform:translateX(0%);opacity:1;pointer-events:auto;}
+nav ul li {width:100%;}
+nav ul li a {font-size:1.14rem;display:block;padding:12px 0;width:100%;}
+nav ul li a {transition:color .18s,background .21s;}
+nav ul li a:hover,nav ul li a:focus { background:linear-gradient(94deg,var(--modern-dark) 55%,var(--modern-blue) 137%); color:var(--modern-mint); border-radius:13px; padding-left:13px; text-shadow:0 4px 12px #38ba5933; }
+.menu-overlay { content:"";position:fixed;top:0;left:0;right:0;bottom:0; background:rgba(24,36,68,0.17);z-index:1079;display:none; }
+.menu-overlay.show {display:block;}
 }
-
 .hero{text-align:center;margin-top:60px;}
 .hero h1{font-size:2.5rem;margin-bottom:15px;font-weight:700;}
 .hero h1 span{color:var(--modern-blue);font-style:italic;}
 .hero p{font-size:1.27rem;margin-bottom:32px;color:var(--modern-lavender);}
-.cta{
-  display:inline-block;
-  background:linear-gradient(97deg,var(--modern-dark) 60%,var(--modern-blue) 100%,var(--modern-gray) 290%);
-  color:var(--modern-white);
-  padding:18px 44px;font-weight:bold;text-decoration:none;border-radius:30px;
-  font-size:1.13rem;box-shadow:0 7px 28px #6393fa23,0 1.5px 11px #1824441a;
-  border:none;outline:none;letter-spacing:.048em;
-  transition:box-shadow .20s,background .20s cubic-bezier(.68,.1,.48,1.18),
-    color .16s,transform .15s,filter .18s;
-  position:relative;
-  filter:brightness(1);
-}
-.cta:hover,.cta:focus{
-  background:linear-gradient(94deg,var(--modern-mint) 62%,var(--modern-blue) 120%);
-  color:var(--modern-dark);
-  box-shadow:0 12px 32px 0 #6393fa1a;
-  transform:scale(1.055) rotate(-1deg);
-  filter:brightness(1.08) saturate(1.12);
-  text-shadow:0 2.5px 13px #18244433;
-}
+.cta{ display:inline-block; background:linear-gradient(97deg,var(--modern-dark) 60%,var(--modern-blue) 100%,var(--modern-gray) 290%); color:var(--modern-white); padding:18px 44px;font-weight:bold;text-decoration:none;border-radius:30px; font-size:1.13rem;box-shadow:0 7px 28px #38ba5923,0 1.5px 11px #1824441a; border:none;outline:none;letter-spacing:.048em; transition:box-shadow .20s,background .20s cubic-bezier(.68,.1,.48,1.18), color .16s,transform .15s,filter .18s; position:relative; filter:brightness(1); }
+.cta:hover,.cta:focus{ background:linear-gradient(94deg,var(--modern-mint) 62%,var(--modern-blue) 120%); color:var(--modern-dark); box-shadow:0 12px 32px 0 #38ba591a; transform:scale(1.055) rotate(-1deg); filter:brightness(1.08) saturate(1.12); text-shadow:0 2.5px 13px #18244433; }
 
 section{padding:60px 8vw;margin:0 auto;}
 h2{text-align:center;font-size:2.1rem;margin-bottom:48px;color:var(--modern-blue);letter-spacing:1px;font-weight:800;}
 .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:38px;}
-.service-card {
-  background: linear-gradient(133deg,var(--modern-lavender) 69%,var(--modern-mint) 100%);
-  border-radius:22px;box-shadow:0 4px 22px #18244413;
-  padding:38px 24px 32px 24px;text-align:center;
-  transition:transform .18s,box-shadow .17s,border-color .16s;
-  border:2.5px solid var(--modern-gray);
-  position:relative;overflow:hidden;
-}
-.service-card:hover{
-  transform:translateY(-7px) scale(1.033);
-  box-shadow:0 10px 32px #6393fa30;
-  border-color:var(--modern-blue);
-}
+.service-card { background: linear-gradient(133deg,var(--modern-lavender) 69%,var(--modern-mint) 100%); border-radius:22px;box-shadow:0 4px 22px #18244413; padding:38px 24px 32px 24px;text-align:center; transition:transform .18s,box-shadow .17s,border-color .16s; border:2.5px solid var(--modern-gray); position:relative;overflow:hidden; }
+.service-card:hover{ transform:translateY(-7px) scale(1.033); box-shadow:0 10px 32px #38ba5930; border-color:var(--modern-blue); }
 .service-card .icon-service{margin-bottom:15px;width:48px;height:48px;display:inline-block;}
 .service-card h3{color:var(--modern-blue);font-weight:bold;font-size:1.15rem;margin-bottom:13px;letter-spacing:.1px;}
 .service-card p{min-height:54px;color:#182444;font-size:1.06rem;opacity:0.99;}
@@ -159,99 +61,50 @@ h2{text-align:center;font-size:2.1rem;margin-bottom:48px;color:var(--modern-blue
 .about-content{display:flex;gap:32px;align-items:center;max-width:1100px;margin:0 auto;flex-wrap:wrap;}
 .about-text{flex:2;font-size:1.09rem;color:#24325b;}
 .about-text span{color:var(--modern-blue);font-weight:bold;}
-.about-image img{max-width:360px;width:90vw;border-radius:17px;box-shadow:0 4px 32px #6393fa1a;}
-@media (max-width:900px){
-  .about-content{flex-direction:column-reverse;align-items:flex-start;gap:18px;}
-  .about-image img{max-width:100%;}
-}
+.about-image img{max-width:360px;width:90vw;border-radius:17px;box-shadow:0 4px 32px #38ba591a;}
+@media (max-width:900px){ .about-content{flex-direction:column-reverse;align-items:flex-start;gap:18px;} .about-image img{max-width:100%;} }
+
+/*** Section Pricing ***/
+.pricing-section{ background: linear-gradient(112deg, var(--modern-mint) 10%, var(--modern-gray) 70%, var(--modern-lavender) 100%); border-radius:26px; box-shadow:0 7px 32px #38ba5921; margin-bottom:68px; margin-top:0; padding-top:60px;padding-bottom:46px; max-width:1070px; }
+.pricing-cards{ display: flex; gap:32px; justify-content:center; flex-wrap:wrap; }
+.pricing-card{ background: #fff; border-radius:20px; box-shadow:0 6px 32px #18244414; padding: 38px 28px 34px 28px; flex:1 1 265px; max-width:340px; min-width:230px; text-align:center; position:relative; border:2px solid var(--modern-gray); transition:transform .18s, box-shadow .21s, border-color .15s; }
+.pricing-card .pricing-title{ font-size:1.18rem; color:var(--modern-dark); font-weight:700; margin-bottom:9px; letter-spacing:2px; }
+.pricing-card .pricing-price{ font-size:2.15rem;color:var(--modern-blue); font-weight:800; margin-bottom:8px; margin-top:9px; letter-spacing:.7px; }
+.pricing-card .per{ font-size:1.08rem; color:#182444B3; font-weight:400; margin-left:4px; letter-spacing:0; }
+.pricing-card ul{ list-style:none; text-align:left; margin:30px 0 24px 0; padding:0 6px; }
+.pricing-card ul li{ padding:6px 0 4px 0; color:var(--modern-dark); font-size:1.01rem; position:relative; padding-left:26px; margin-bottom:3px; }
+.pricing-card ul li::before{ content:'✔'; color:var(--modern-blue); font-size:1rem; position:absolute; left:2px;top:3px; }
+.pricing-card .cta-pricing{ display:inline-block; margin-top:13px; background:linear-gradient(90deg,var(--modern-blue) 63%,var(--modern-mint) 120%); color:#fff; border:none; border-radius:999px; font-size:1.02rem; font-weight:700; padding:12px 34px; text-decoration:none; letter-spacing:.055em; box-shadow:0 4px 16px #38ba591a; transition:background .19s, color .16s, filter .14s, transform .14s; }
+.pricing-card .cta-pricing:hover, .pricing-card .cta-pricing:focus{ background:linear-gradient(90deg,#fff 18%,var(--modern-blue) 94%); color:var(--modern-blue); filter:brightness(1.11); transform:scale(1.05); box-shadow:0 10px 30px #38ba5934; }
+.pricing-card .pricing-desc{ margin-bottom:8px; font-size:1.01rem; color:var(--modern-dark); opacity:.93; font-style:italic; }
+@media (max-width:1000px){ .pricing-cards{gap:22px;} .pricing-card{padding:32px 15px;} }
+@media (max-width:800px){ .pricing-cards{flex-direction:column;align-items:center;} .pricing-card{max-width:480px;} }
+@media (max-width:600px){ .pricing-section{padding:37px 2vw 30px 2vw;} .pricing-cards{gap:14px;} .pricing-card{padding:22px 5vw;} }
+.pricing-section h2 { margin-bottom:24px; }
+.pricing-note { color:var(--modern-dark); font-size:.97rem; margin-top:18px; opacity:.82; text-align:center; }
+/*** Fin Pricing ***/
 
 .contact-container{display:flex;gap:44px;justify-content:center;max-width:820px;margin:0 auto;align-items:flex-start;flex-wrap:wrap;}
 .contact-info{flex:1;min-width:260px;max-width:310px;margin-bottom:26px;}
-.contact-info-card{
-  background:linear-gradient(137deg,var(--modern-gray) 67%,#edeafc 100%);
-  border-radius:15px;box-shadow:0 5px 32px #6393fa0b;
-  padding:32px 24px 16px 24px;text-align:left;border:2px solid var(--modern-gray);
-  position:relative;
-}
+.contact-info-card{ background:linear-gradient(137deg,var(--modern-gray) 67%,#edeafc 100%); border-radius:15px;box-shadow:0 5px 32px #38ba590b; padding:32px 24px 16px 24px;text-align:left;border:2px solid var(--modern-gray); position:relative; }
 .contact-info-card .contact-icon{display:inline-block;margin-bottom:13px;}
 .contact-info-card p{font-size:1.06rem;color:var(--modern-blue);line-height:1.6;margin-bottom:19px;}
 .contact-links{margin-top:8px;}
 .contact-links .contact-social{margin-right:10px;opacity:.97;display:inline-block;transition:transform .13s;}
 .contact-links .contact-social:hover{transform:scale(1.15);opacity:1;filter:brightness(1.18);}
-
-/* Nouveau style WhatsApp */
-.contact-whatsapp {
-  flex:2;
-  background:#fff;
-  border-radius:13px;
-  box-shadow:0 4px 16px #6393fa12;
-  padding:32px 28px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  max-width:420px;
-  gap:25px;
-  justify-content:center;
-}
-.contact-whatsapp a {
-  display:inline-block;
-  background:linear-gradient(90deg,#25D366 60%,#182444 120%);
-  color:#fff;
-  padding:15px 38px;
-  font-weight:bold;
-  text-decoration:none;
-  border-radius:30px;
-  font-size:1.16rem;
-  box-shadow:0 7px 28px #6393fa23,0 1.5px 11px #1824441a;
-  border:none;
-  letter-spacing:.045em;
-  transition:box-shadow .16s,background .20s,transform .14s;
-  outline:none;
-}
-.contact-whatsapp a:hover, .contact-whatsapp a:focus {
-  background:linear-gradient(120deg,#182444 62%,#25D366 156%);
-  color:#fff;
-  filter:brightness(1.09);
-  transform:scale(1.06) rotate(-1deg);
-  text-shadow:0 2.5px 7px #18244433;
-}
-.contact-whatsapp svg {
-  display:block;
-  margin:0 auto 18px auto;
-}
-
-@media (max-width:800px){
-  .contact-container{flex-direction:column;align-items:center;gap:22px;}
-  .contact-info{max-width:480px;margin:0 auto 8px auto;}
-  .contact-whatsapp{max-width:480px;}
-}
-@media (max-width:600px){
-  nav ul{gap:13px;}
-  h1{font-size:1.5rem;}
-  h2{font-size:1.25rem;}
-  section{padding:40px 3vw;}
-}
-@media (max-width:599px){
-  .contact-info-card,.contact-container,.contact-whatsapp{padding:20px 9vw;font-size:1rem;}
-}
-
-#toTopBtn{
-  position:fixed;right:28px;bottom:34px;z-index:99;width:56px;height:56px;
-  display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(146deg,var(--modern-dark) 68%,var(--modern-blue) 110%);
-  color:#fff; border:none;border-radius:50%;
-  box-shadow:0 8px 26px #6393fa20,0 1.5px 6px 0 #1824442b;
-  opacity:0;cursor:pointer;transition:opacity .27s, bottom .22s, box-shadow .18s;
-  font-size:2rem;outline:none;pointer-events:none;animation:none;
-}
+.contact-whatsapp { flex:2; background:#fff; border-radius:13px; box-shadow:0 4px 16px #38ba5912; padding:32px 28px; display:flex; flex-direction:column; align-items:center; max-width:420px; gap:25px; justify-content:center; }
+.contact-whatsapp a { display:inline-block; background:linear-gradient(90deg,#25D366 60%,#182444 120%); color:#fff; padding:15px 38px; font-weight:bold; text-decoration:none; border-radius:30px; font-size:1.16rem; box-shadow:0 7px 28px #38ba5923,0 1.5px 11px #1824441a; border:none; letter-spacing:.045em; transition:box-shadow .16s,background .20s,transform .14s; outline:none; }
+.contact-whatsapp a:hover, .contact-whatsapp a:focus { background:linear-gradient(120deg,#182444 62%,#25D366 156%); color:#fff; filter:brightness(1.09); transform:scale(1.06) rotate(-1deg); text-shadow:0 2.5px 7px #18244433; }
+.contact-whatsapp svg { display:block; margin:0 auto 18px auto; }
+@media (max-width:800px){ .contact-container{flex-direction:column;align-items:center;gap:22px;} .contact-info{max-width:480px;margin:0 auto 8px auto;} .contact-whatsapp{max-width:480px;} }
+@media (max-width:600px){ nav ul{gap:13px;} h1{font-size:1.5rem;} h2{font-size:1.25rem;} section{padding:40px 3vw;} }
+@media (max-width:599px){ .contact-info-card,.contact-container,.contact-whatsapp{padding:20px 9vw;font-size:1rem;} }
+#toTopBtn{ position:fixed;right:28px;bottom:34px;z-index:99;width:56px;height:56px; display:flex;align-items:center;justify-content:center; background:linear-gradient(146deg,var(--modern-dark) 68%,var(--modern-blue) 110%); color:#fff; border:none;border-radius:50%; box-shadow:0 8px 26px #38ba5920,0 1.5px 6px 0 #1824442b; opacity:0;cursor:pointer;transition:opacity .27s, bottom .22s, box-shadow .18s; font-size:2rem;outline:none;pointer-events:none;animation:none; }
 #toTopBtn.active{opacity:.91;bottom:38px;pointer-events:auto;animation:bounceTop .75s;}
-#toTopBtn:active{box-shadow:0 4px 10px #6393fa1b;background:linear-gradient(120deg,var(--modern-dark) 56%,var(--modern-blue) 130%);}
+#toTopBtn:active{box-shadow:0 4px 10px #38ba591b;background:linear-gradient(120deg,var(--modern-dark) 56%,var(--modern-blue) 130%);}
 #toTopBtn svg{display:block;}
 @keyframes bounceTop{0%{transform:translateY(36px);}58%{transform:translateY(-7px);}85%{transform:translateY(2px);}100%{transform:translateY(0);}}
-
-footer{
-  background:var(--modern-dark);color:var(--modern-white);padding:28px 0;text-align:center;font-size:1rem;letter-spacing:.2px;
-}
+footer{ background:var(--modern-dark);color:var(--modern-white);padding:28px 0;text-align:center;font-size:1rem;letter-spacing:.2px; }
 .footer-content{display:flex;gap:24px;justify-content:center;align-items:center;flex-wrap:wrap;}
 .footer-content a{color:var(--modern-blue);text-decoration:none;font-weight:700;}
 .footer-content a:hover{opacity:.7;}
@@ -260,187 +113,229 @@ footer{
 <body>
 <header>
 <nav>
-  <div class="logo"><img src="images/logo.png" alt="ecomdz"/></div>
-  <button class="hamburger" id="openMenu" aria-label="Ouvrir le menu" aria-controls="main-menu" aria-expanded="false">
-    <svg width="30" height="30" viewBox="0 0 30 30">
-      <rect y="6" width="30" height="3.6" rx="1.8" fill="#6393fa"/>
-      <rect y="13" width="30" height="3.6" rx="1.8" fill="#fff"/>
-      <rect y="20" width="30" height="3.6" rx="1.8" fill="#182444"/>
-    </svg>
-  </button>
-  <div class="menu-overlay" id="menuOverlay"></div>
-  <ul id="main-menu">
-    <li><a href="#accueil">Accueil</a></li>
-    <li><a href="#solution">Notre solution</a></li>
-    <li><a href="#about">À propos</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+<div class="logo"><img src="images/logo.png" alt="ecomdz"/></div>
+<button class="hamburger" id="openMenu" aria-label="Ouvrir le menu" aria-controls="main-menu" aria-expanded="false">
+<svg width="30" height="30" viewBox="0 0 30 30">
+<rect y="6" width="30" height="3.6" rx="1.8" fill="#38ba59"/>
+<rect y="13" width="30" height="3.6" rx="1.8" fill="#fff"/>
+<rect y="20" width="30" height="3.6" rx="1.8" fill="#182444"/>
+</svg>
+</button>
+<div class="menu-overlay" id="menuOverlay"></div>
+<ul id="main-menu">
+<li><a href="#accueil">Accueil</a></li>
+<li><a href="#solution">Notre solution</a></li>
+<li><a href="#pricing">Tarifs</a></li>
+<li><a href="#about">À propos</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
 </nav>
 <div class="hero" id="accueil">
-  <h1><span>ecomdz</span> – Votre partenaire digital en Algérie</h1>
-  <p>
-    Développez votre activité et démarquez-vous sur le web.<br>
-    Nous créons des solutions digitales sur-mesure qui vous apportent des résultats concrets et mesurables.<br>
-    ▶️ Expertises web, stratégie et performance.<br>
-    ▶️ Simple, réactif et orienté ROI.<br>
-  </p>
-  <a href="#contact" class="cta">Demander un devis gratuit</a>
+<h1><span>ecomdz</span> – Votre partenaire digital en Algérie</h1>
+<p>
+Développez votre activité et démarquez-vous sur le web.<br>
+Nous créons des solutions digitales sur-mesure qui vous apportent des résultats concrets et mesurables.<br>
+▶️ Expertises web, stratégie et performance.<br>
+▶️ Simple, réactif et orienté ROI.<br>
+</p>
+<a href="#contact" class="cta">Demander un devis gratuit</a>
 </div>
 </header>
 <section id="solution">
-  <h2>Notre solution</h2>
-  <div class="services-grid">
-    <div class="service-card">
-      <span class="icon-service">
-        <svg fill="none" viewBox="0 0 48 48">
-          <circle cx="24" cy="24" r="24" fill="#6393fa"/>
-          <path d="M13 31l10-10 6 6 6-10" stroke="#182444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="35" cy="17" r="2.2" fill="#182444"/>
-        </svg>
-      </span>
-      <h3>Site vitrine sur-mesure</h3>
-      <p>Un site professionnel à votre image pour présenter vos services et séduire vos clients.</p>
+<h2>Notre solution</h2>
+<div class="services-grid">
+<div class="service-card">
+<span class="icon-service">
+<svg fill="none" viewBox="0 0 48 48">
+<circle cx="24" cy="24" r="24" fill="#38ba59"/>
+<path d="M13 31l10-10 6 6 6-10" stroke="#182444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="35" cy="17" r="2.2" fill="#182444"/>
+</svg>
+</span>
+<h3>Site vitrine sur-mesure</h3>
+<p>Un site professionnel à votre image pour présenter vos services et séduire vos clients.</p>
+</div>
+<div class="service-card">
+<span class="icon-service">
+<svg fill="none" viewBox="0 0 48 48">
+<circle cx="24" cy="24" r="24" fill="#182444"/>
+<ellipse cx="24" cy="35" rx="13" ry="3" fill="#38ba59" opacity="0.10"/>
+<path d="M35 31a11 11 0 10-22 0h22zm-11-7V13m0 0a3 3 0 013 3" stroke="#38ba59" stroke-width="2.1" stroke-linecap="round"/>
+<circle cx="24" cy="10" r="2" fill="#f5f7fa"/>
+</svg>
+</span>
+<h3>Site de commande en ligne<br>(resto/pâtisserie)</h3>
+<p>Menu interactif, commandes et paiements en ligne pour booster vos ventes.</p>
+</div>
+<div class="service-card">
+<span class="icon-service">
+<svg fill="none" viewBox="0 0 48 48">
+<circle cx="24" cy="24" r="24" fill="#ebd9fc"/>
+<rect x="13" y="14" width="22" height="14" rx="2.5" stroke="#38ba59" stroke-width="2.2" fill="#fff"/>
+<circle cx="20" cy="34" r="2.2" fill="#38ba59"/>
+<circle cx="28" cy="34" r="2.2" fill="#f5f7fa"/>
+</svg>
+</span>
+<h3>Site e-commerce</h3>
+<p>Boutique en ligne complète : catalogue, gestion, paiement sécurisé – prêt à vendre !</p>
+</div>
+</div>
+</section>
+
+<!-- ###### SECTION PRICING MODIFIÉE ###### -->
+<section class="pricing-section" id="pricing">
+  <h2>Nos tarifs</h2>
+  <div class="pricing-cards">
+    <!-- Commande en ligne -->
+    <div class="pricing-card">
+      <div class="pricing-title">Site de commande<br><small style="font-weight:400;font-size:.97em">(Resto / Boulangerie...)</small></div>
+      <div class="pricing-price">3&nbsp;000 <span class="per">DA/mois</span></div>
+      <div class="pricing-desc">Abonnement mensuel</div>
+      <ul>
+        <li>Catalogue/menu interactif</li>
+        <li>Commande & paiement en ligne</li>
+        <li>Gestion simple (admin)</li>
+        <li>Support réactif</li>
+      </ul>
+      <a href="#contact" class="cta-pricing">Obtenir mon offre</a>
     </div>
-    <div class="service-card">
-      <span class="icon-service">
-        <svg fill="none" viewBox="0 0 48 48">
-          <circle cx="24" cy="24" r="24" fill="#182444"/>
-          <ellipse cx="24" cy="35" rx="13" ry="3" fill="#6393fa" opacity="0.10"/>
-          <path d="M35 31a11 11 0 10-22 0h22zm-11-7V13m0 0a3 3 0 013 3" stroke="#6393fa" stroke-width="2.1" stroke-linecap="round"/>
-          <circle cx="24" cy="10" r="2" fill="#f5f7fa"/>
-        </svg>
-      </span>
-      <h3>Site de commande en ligne<br>(resto/pâtisserie)</h3>
-      <p>Menu interactif, commandes et paiements en ligne pour booster vos ventes.</p>
+    <!-- Vitrine -->
+    <div class="pricing-card">
+      <div class="pricing-title">Site vitrine</div>
+      <div class="pricing-price">50&nbsp;000 <span class="per">DA</span></div>
+      <div class="pricing-desc">À partir de</div>
+      <ul>
+        <li>Design professionnel & moderne</li>
+        <li>Pages personnalisées</li>
+        <li>Formulaire de contact</li>
+        <li>Compatible mobile/tablette</li>
+        <li>Livraison rapide</li>
+      </ul>
+      <a href="#contact" class="cta-pricing">Demander un devis</a>
     </div>
-    <div class="service-card">
-      <span class="icon-service">
-        <svg fill="none" viewBox="0 0 48 48">
-          <circle cx="24" cy="24" r="24" fill="#ebd9fc"/>
-          <rect x="13" y="14" width="22" height="14" rx="2.5" stroke="#6393fa" stroke-width="2.2" fill="#fff"/>
-          <circle cx="20" cy="34" r="2.2" fill="#6393fa"/>
-          <circle cx="28" cy="34" r="2.2" fill="#f5f7fa"/>
-        </svg>
-      </span>
-      <h3>Site e-commerce</h3>
-      <p>Boutique en ligne complète : catalogue, gestion, paiement sécurisé – prêt à vendre !</p>
+    <!-- E-commerce -->
+    <div class="pricing-card">
+      <div class="pricing-title">Site E-commerce A</div>
+      <div class="pricing-price">120&nbsp;000 <span class="per">DA</span></div>
+      <div class="pricing-desc">À partir de</div>
+      <ul>
+        <li>Boutique complète & sécurisée</li>
+        <li>Gestion produits & stocks</li>
+        <li>Commandes illimitées</li>
+        <li>Paiement en ligne ou à la livraison</li>
+        <li>Formation + accompagnement</li>
+      </ul>
+      <a href="#contact" class="cta-pricing">Parler à un expert</a>
     </div>
+  </div>
+  <div class="pricing-note">
+    Pour un projet sur-mesure, nous proposons un devis adapté à vos besoins (développement spécifique, modules, branding...)
   </div>
 </section>
+<!-- ###### FIN SECTION PRICING ###### -->
+
 <section id="about">
-  <h2>À propos de ecomdz</h2>
-  <div class="about-content">
-    <div class="about-text">
-      <p>
-        Basée en Algérie, notre équipe d’experts passionnés accompagne les marques ambitieuses dans leur transition et visibilité digitale.
-        Créativité, innovation et performance sont au cœur de nos projets.<br>
-        <strong>Notre mission :</strong> vous aider à <span>convertir vos idées en succès</span> sur le web !
-      </p>
-    </div>
-    <div class="about-image">
-      <img src="images/hero.jpg" alt="Agence ecomdz">
-    </div>
-  </div>
+<h2>À propos de ecomdz</h2>
+<div class="about-content">
+<div class="about-text">
+<p>
+Basée en Algérie, notre équipe d’experts passionnés accompagne les marques ambitieuses dans leur transition et visibilité digitale. Créativité, innovation et performance sont au cœur de nos projets.<br>
+<strong>Notre mission :</strong> vous aider à <span>convertir vos idées en succès</span> sur le web !
+</p>
+</div>
+<div class="about-image">
+<img src="images/hero.jpg" alt="Agence ecomdz">
+</div>
+</div>
 </section>
 <section id="contact">
-  <h2>Contactez-nous</h2>
-  <div class="contact-container">
-    <div class="contact-info">
-      <div class="contact-info-card">
-        <span class="contact-icon">
-          <svg width="26" height="26" fill="none" viewBox="0 0 32 32">
-            <circle cx="16" cy="16" r="16" fill="#182444"/>
-            <path d="M23 11a1 1 0 00-1-1H10a1 1 0 00-1 1v9a1 1 0 001 1h12a1 1 0 001-1v-9zm-1 0.5l-6 5-6-5" stroke="#6393fa" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </span>
-        <p>
-          Besoin d’un devis ? Une question ?<br>
-          <b>Nous répondons sous 24h.</b><br>
-          <span style="color:#6393fa;display:inline-block;margin-top:6px;">
-            <a href="mailto:contact@ecomdz.com" style="color:inherit;text-decoration:none;font-weight:700;">contact@ecomdz.com</a>
-          </span>
-        </p>
-        <div class="contact-links">
-          <a href="https://wa.me/213540731540?text=Bonjour%20ecomdz%20!%20J%27ai%20une%20question%20concernant%20vos%20services." target="_blank" rel="noopener" class="contact-social" aria-label="WhatsApp Business">
-            <svg width="23" height="23" viewBox="0 0 32 32" fill="none">
-              <circle cx="16" cy="16" r="16" fill="#25D366"/>
-              <path d="M23.6 20.72c-.34-.17-2-.99-2.32-1.1-.31-.11-.54-.17-.77.17-.23.34-.88 1.09-1.08 1.31-.2.23-.4.25-.74.08-.34-.17-1.44-.53-2.74-1.68-1.01-.89-1.69-2-1.89-2.33-.2-.34-.02-.51.15-.67.15-.15.34-.4.52-.6.17-.2.23-.34.35-.57.12-.23.06-.43-.03-.6-.09-.17-.84-2-1.15-2.75-.3-.72-.6-.62-.83-.63-.22-.01-.47-.01-.73-.01-.25 0-.66.09-1 .42-.34.34-1.3 1.27-1.3 3.09 0 1.82 1.46 3.58 1.67 3.82.22.23 2.87 4.43 7.06 5.6.99.28 1.76.43 2.36.46.67.03 1.28-.07 1.77-.14.54-.08 1.65-.67 1.88-1.33.23-.67.23-1.24.17-1.33-.05-.09-.31-.14-.6-.29z" fill="#fff"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="contact-whatsapp">
-      <div style="text-align:center;">
-        <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
-          <circle cx="28" cy="28" r="28" fill="#25D366"/>
-          <path d="M40.3 35.7c-.76-.38-4.5-2.2-5.2-2.45-.7-.24-1.15-.38-1.63.38-.48.76-1.85 2.18-2.26 2.62-.42.44-.83.5-1.52.16-.69-.35-2.94-1.07-5.6-3.44C20.6 29.7 19.3 27.32 18.98 26.87c-.31-.44-.04-.67.23-.89.27-.21.61-.57.94-.86.34-.29.46-.5.7-.84.25-.38.13-.7-.04-.99-.17-.29-1.11-2.11-1.52-2.89-.4-.78-.8-.66-1.1-.67-.29-.01-.62-.01-.97-.01-.36 0-.88.13-1.32.54-.44.41-1.7 1.67-1.7 4.06 0 2.39 1.9 4.7 2.17 5.01.29.32 3.74 6.24 9.19 7.9 1.32.38 2.33.62 3.13.66.89.04 1.7-.1 2.36-.18.72-.09 2.19-.85 2.5-1.71.31-.85.31-1.58.23-1.71-.08-.13-.41-.19-.8-.38z" fill="#fff"/>
-        </svg>
-        <h3 style="font-size:1.28rem;color:#182444;font-weight:700;margin-bottom:12px;margin-top:0;">Discuter sur WhatsApp</h3>
-        <div style="color:#6393fa;font-size:1.05rem;margin-bottom:16px;">
-          Cliquez sur le bouton pour une réponse rapide<br>
-          (7j/7 de 9h à 21h)
-        </div>
-        <a href="https://wa.me/213540731540?text=Bonjour%20ecomdz%20!%20J%27ai%20une%20question%20concernant%20vos%20services." target="_blank" rel="noopener">
-          💬 Contact WhatsApp
-        </a>
-      </div>
-    </div>
-  </div>
+<h2>Contactez-nous</h2>
+<div class="contact-container">
+<div class="contact-info">
+<div class="contact-info-card">
+<span class="contact-icon">
+<svg width="26" height="26" fill="none" viewBox="0 0 32 32">
+<circle cx="16" cy="16" r="16" fill="#182444"/>
+<path d="M23 11a1 1 0 00-1-1H10a1 1 0 00-1 1v9a1 1 0 001 1h12a1 1 0 001-1v-9zm-1 0.5l-6 5-6-5" stroke="#38ba59" stroke-width="2" stroke-linecap="round"/>
+</svg>
+</span>
+<p>
+Besoin d’un devis ? Une question ?<br>
+<b>Nous répondons sous 24h.</b><br>
+<span style="color:#38ba59;display:inline-block;margin-top:6px;">
+<a href="mailto:contact@ecomdz.com" style="color:inherit;text-decoration:none;font-weight:700;">contact@ecomdz.com</a>
+</span>
+</p>
+<div class="contact-links">
+<a href="https://wa.me/213540731540?text=Bonjour%20ecomdz%20!%20J%27ai%20une%20question%20concernant%20vos%20services." target="_blank" rel="noopener" class="contact-social" aria-label="WhatsApp Business">
+<svg width="23" height="23" viewBox="0 0 32 32" fill="none">
+<circle cx="16" cy="16" r="16" fill="#25D366"/>
+<path d="M23.6 20.72c-.34-.17-2-.99-2.32-1.1-.31-.11-.54-.17-.77.17-.23.34-.88 1.09-1.08 1.31-.2.23-.4.25-.74.08-.34-.17-1.44-.53-2.74-1.68-1.01-.89-1.69-2-1.89-2.33-.2-.34-.02-.51.15-.67.15-.15.34-.4.52-.6.17-.2.23-.34.35-.57.12-.23.06-.43-.03-.6-.09-.17-.84-2-1.15-2.75-.3-.72-.6-.62-.83-.63-.22-.01-.47-.01-.73-.01-.25 0-.66.09-1 .42-.34.34-1.3 1.27-1.3 3.09 0 1.82 1.46 3.58 1.67 3.82.22.23 2.87 4.43 7.06 5.6.99.28 1.76.43 2.36.46.67.03 1.28-.07 1.77-.14.54-.08 1.65-.67 1.88-1.33.23-.67.23-1.24.17-1.33-.05-.09-.31-.14-.6-.29z" fill="#fff"/>
+</svg>
+</a>
+</div>
+</div>
+</div>
+<div class="contact-whatsapp">
+<div style="text-align:center;">
+<svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+<circle cx="28" cy="28" r="28" fill="#25D366"/>
+<path d="M40.3 35.7c-.76-.38-4.5-2.2-5.2-2.45-.7-.24-1.15-.38-1.63.38-.48.76-1.85 2.18-2.26 2.62-.42.44-.83.5-1.52.16-.69-.35-2.94-1.07-5.6-3.44C20.6 29.7 19.3 27.32 18.98 26.87c-.31-.44-.04-.67.23-.89.27-.21.61-.57.94-.86.34-.29.46-.5.7-.84.25-.38.13-.7-.04-.99-.17-.29-1.11-2.11-1.52-2.89-.4-.78-.8-.66-1.1-.67-.29-.01-.62-.01-.97-.01-.36 0-.88.13-1.32.54-.44.41-1.7 1.67-1.7 4.06 0 2.39 1.9 4.7 2.17 5.01.29.32 3.74 6.24 9.19 7.9 1.32.38 2.33.62 3.13.66.89.04 1.7-.1 2.36-.18.72-.09 2.19-.85 2.5-1.71.31-.85.31-1.58.23-1.71-.08-.13-.41-.19-.8-.38z" fill="#fff"/>
+</svg>
+<h3 style="font-size:1.28rem;color:#182444;font-weight:700;margin-bottom:12px;margin-top:0;">Discuter sur WhatsApp</h3>
+<div style="color:#38ba59;font-size:1.05rem;margin-bottom:16px;">
+Cliquez sur le bouton pour une réponse rapide<br>
+(7j/7 de 9h à 21h)
+</div>
+<a href="https://wa.me/213540731540?text=Bonjour%20ecomdz%20!%20J%27ai%20une%20question%20concernant%20vos%20services." target="_blank" rel="noopener"> 💬 Contact WhatsApp </a>
+</div>
+</div>
+</div>
 </section>
 <footer>
-  <div class="footer-content">
-    <div>&copy; 2025 ecomdz — Agence de conception & marketing digital</div>
-    <div><a href="mailto:contact@ecomdz.com">contact@ecomdz.com</a></div>
-    <div>
-      <a href="https://wa.me/213540731540?text=Bonjour%20ecomdz%20!%20J%27ai%20une%20question%20concernant%20vos%20services." target="_blank" rel="noopener" aria-label="Nous contacter sur WhatsApp Business">
-        WhatsApp Business
-      </a>
-    </div>
-  </div>
+<div class="footer-content">
+<div>&copy; 2025 ecomdz — Agence de conception & marketing digital</div>
+<div><a href="mailto:contact@ecomdz.com">contact@ecomdz.com</a></div>
+<div>
+<a href="https://wa.me/213540731540?text=Bonjour%20ecomdz%20!%20J%27ai%20une%20question%20concernant%20vos%20services." target="_blank" rel="noopener" aria-label="Nous contacter sur WhatsApp Business">
+WhatsApp Business
+</a>
+</div>
+</div>
 </footer>
 <button id="toTopBtn" aria-label="Revenir en haut" title="Haut">
-  <svg width="30" height="30" fill="none" viewBox="0 0 30 30">
-    <circle cx="15" cy="15" r="15" fill="#fff"/>
-    <path d="M9 17l6-6 6 6" stroke="#6393fa" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
+<svg width="30" height="30" fill="none" viewBox="0 0 30 30">
+<circle cx="15" cy="15" r="15" fill="#fff"/>
+<path d="M9 17l6-6 6 6" stroke="#38ba59" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
 </button>
-
 <script>
 // Bouton retour haut
 const toTopBtn = document.getElementById('toTopBtn');
 window.addEventListener('scroll',()=>{ if(window.pageYOffset>200){ toTopBtn.classList.add('active'); }else{ toTopBtn.classList.remove('active'); } });
 toTopBtn.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); });
 toTopBtn.addEventListener('keydown',function(e){ if(e.key==="Enter"||e.key===" "){ window.scrollTo({top:0,behavior:"smooth"}); } });
-
 // Menu hamburger responsive
 const burger = document.getElementById('openMenu');
 const navMenu = document.getElementById('main-menu');
 const menuOverlay = document.getElementById('menuOverlay');
 function openMenu() {
-  navMenu.classList.add('open');
-  menuOverlay.classList.add('show');
-  burger.setAttribute('aria-expanded', 'true');
-  setTimeout(()=>{ const firstLink = navMenu.querySelector('a'); if(firstLink) firstLink.focus(); },180);
-  document.addEventListener('keydown', escClose);
+navMenu.classList.add('open');
+menuOverlay.classList.add('show');
+burger.setAttribute('aria-expanded', 'true');
+setTimeout(()=>{ const firstLink = navMenu.querySelector('a'); if(firstLink) firstLink.focus(); },180);
+document.addEventListener('keydown', escClose);
 }
 function closeMenu() {
-  navMenu.classList.remove('open');
-  menuOverlay.classList.remove('show');
-  burger.setAttribute('aria-expanded', 'false');
-  burger.focus();
-  document.removeEventListener('keydown', escClose);
+navMenu.classList.remove('open');
+menuOverlay.classList.remove('show');
+burger.setAttribute('aria-expanded', 'false');
+burger.focus();
+document.removeEventListener('keydown', escClose);
 }
 function escClose(e) { if(e.key==='Escape'){ closeMenu(); } }
-burger.addEventListener('click',e=>{
-  if(window.innerWidth>850)return;
-  if(navMenu.classList.contains('open')){closeMenu();}else{openMenu();}
-});
-burger.addEventListener('keydown',e=>{
-  if(e.key==="Enter"||e.key===" "){ e.preventDefault();
-    if(navMenu.classList.contains('open')){closeMenu();}else{openMenu();}
-  }
-});
+burger.addEventListener('click',e=>{ if(window.innerWidth>850)return; if(navMenu.classList.contains('open')){closeMenu();}else{openMenu();} });
+burger.addEventListener('keydown',e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); if(navMenu.classList.contains('open')){closeMenu();}else{openMenu();} } });
 menuOverlay.addEventListener('click',closeMenu);
 [...navMenu.querySelectorAll('a')].forEach(link=>{ link.addEventListener('click',()=>{ if(window.innerWidth<=850){closeMenu();} }); });
 window.addEventListener('resize',()=>{ if(window.innerWidth>850){ navMenu.classList.remove('open'); menuOverlay.classList.remove('show'); burger.setAttribute('aria-expanded','false'); } });
