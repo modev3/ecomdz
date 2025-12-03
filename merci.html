@@ -265,7 +265,7 @@
             </div>
             <div class="summary-row">
                 <span class="summary-label">📧 E-mail</span>
-                <span class="summary-value" id="displayPhone">-</span>
+                <span class="summary-value" id="displayName">-</span>
             </div>
         </div>
 
@@ -305,7 +305,7 @@
                 document.getElementById('displayShop').innerText = currentOrder.shopName || '-';
                 document.getElementById('displayPlan').innerText = currentOrder.plan.toUpperCase() || '-';
                 document.getElementById('displayActivity').innerText = currentOrder.activity || '-';
-                document.getElementById('displayPhone').innerText = currentOrder.phone || '-';
+                document.getElementById('displayName').innerText = currentOrder.userName || '-';
 
                 // Keep data in localStorage until WhatsApp is confirmed
             } else {
@@ -325,7 +325,7 @@
                 `📦 *Plan:* ${currentOrder.plan.toUpperCase()}%0A` +
                 `👤 *Nom:* ${currentOrder.userName}%0A` +
                 `🏪 *Boutique:* ${currentOrder.shopName}%0A` +
-                `📱 *E-mail:* ${currentOrder.phone}%0A` +
+                `📧 *Nom:* ${currentOrder.userName}%0A` +
                 `🎯 *Activité:* ${currentOrder.activity}%0A` +
                 `%0AMerci !`;
 
@@ -350,4 +350,5 @@
 
 
 </html>
+
 
