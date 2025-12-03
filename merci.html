@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Merci pour votre commande - EcomDZ</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #050505;
+            --bg-panel: #0f0f0f;
+            --green-1: #00d27a;
+            --green-2: #008a3e;
+            --text-main: #e8efe9;
+            --text-muted: #9ca3af;
+            --border: rgba(255, 255, 255, 0.08);
+            --max-width: 800px;
+        }
+
+        * {
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg-dark);
+            font-family: "Inter", sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .thank-you-container {
+            max-width: var(--max-width);
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 210, 122, 0.1);
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--green-1), var(--green-2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 3rem;
+            animation: scaleIn 0.5s ease;
+        }
+
+        @keyframes scaleIn {
+            0% {
+                transform: scale(0);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+            }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--green-1), var(--green-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        .order-summary {
+            background: rgba(0, 210, 122, 0.05);
+            border: 1px solid var(--green-2);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: left;
+        }
+
+        .summary-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--green-1);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .summary-row:last-child {
+            border-bottom: none;
+        }
+
+        .summary-label {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .summary-value {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+            padding: 18px 36px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+            animation: none;
+        }
+
+        .next-steps {
+            background: var(--bg-dark);
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .next-steps h3 {
+            color: var(--green-1);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .next-steps ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .next-steps li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: var(--text-muted);
+        }
+
+        .next-steps li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--green-1);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .btn-home {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .btn-home:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-main);
+            border-color: var(--green-1);
+        }
+
+        @media (max-width: 600px) {
+            .thank-you-container {
+                padding: 40px 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .summary-row {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="thank-you-container">
+        <div class="success-icon">✓</div>
+
+        <h1>Merci pour votre commande !</h1>
+        <p class="subtitle">Veuillez vérifier le récapitulatif ci-dessous et confirmer votre commande.</p>
+
+        <div class="order-summary" id="orderDetails">
+            <div class="summary-title">📋 Récapitulatif de votre commande</div>
+            <div class="summary-row">
+                <span class="summary-label">👤 Nom</span>
+                <span class="summary-value" id="displayName">-</span>
+            </div>
+            <div class="summary-row">
+                <span class="summary-label">🏪 Nom de la boutique</span>
+                <span class="summary-value" id="displayShop">-</span>
+            </div>
+            <div class="summary-row">
+                <span class="summary-label">📦 Plan choisi</span>
+                <span class="summary-value" id="displayPlan">-</span>
+            </div>
+            <div class="summary-row">
+                <span class="summary-label">🎯 Type d'activité</span>
+                <span class="summary-value" id="displayActivity">-</span>
+            </div>
+            <div class="summary-row">
+                <span class="summary-label">📱 Téléphone</span>
+                <span class="summary-value" id="displayPhone">-</span>
+            </div>
+        </div>
+
+        <button id="confirmBtn" class="btn-whatsapp">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 10px;">
+                <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+            Confirmer ma commande sur WhatsApp
+        </button>
+
+        <div class="next-steps">
+            <h3>🚀 Prochaines étapes</h3>
+            <ul>
+                <li>Cliquez sur le bouton ci-dessus pour envoyer votre commande</li>
+                <li>Notre équipe va examiner votre demande dans les prochaines heures</li>
+                <li>Vous recevrez un message WhatsApp pour confirmer les détails</li>
+                <li>Votre boutique sera livrée en moins de 24 heures</li>
+                <li>Vous bénéficierez d'une formation complète pour démarrer</li>
+            </ul>
+        </div>
+
+        <a href="index.html" class="btn-home">← Retour à l'accueil</a>
+    </div>
+
+    <script>
+        let currentOrder = null;
+
+        // Load order data from localStorage
+        document.addEventListener('DOMContentLoaded', () => {
+            const orderData = localStorage.getItem('ecomdz_order');
+
+            if (orderData) {
+                currentOrder = JSON.parse(orderData);
+
+                document.getElementById('displayName').innerText = currentOrder.userName || '-';
+                document.getElementById('displayShop').innerText = currentOrder.shopName || '-';
+                document.getElementById('displayPlan').innerText = currentOrder.plan.toUpperCase() || '-';
+                document.getElementById('displayActivity').innerText = currentOrder.activity || '-';
+                document.getElementById('displayPhone').innerText = currentOrder.phone || '-';
+
+                // Keep data in localStorage until WhatsApp is confirmed
+            } else {
+                // If no order data, redirect to home
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 2000);
+            }
+        });
+
+        // WhatsApp confirmation button
+        document.getElementById('confirmBtn').addEventListener('click', () => {
+            if (!currentOrder) return;
+
+            // Construct WhatsApp message
+            const whatsappMessage = `*Nouvelle Commande EcomDZ*%0A%0A` +
+                `📦 *Plan:* ${currentOrder.plan.toUpperCase()}%0A` +
+                `👤 *Nom:* ${currentOrder.userName}%0A` +
+                `🏪 *Boutique:* ${currentOrder.shopName}%0A` +
+                `📱 *Téléphone:* ${currentOrder.phone}%0A` +
+                `🎯 *Activité:* ${currentOrder.activity}%0A` +
+                `%0AMerci !`;
+
+            const whatsappUrl = `https://wa.me/213540731540?text=${whatsappMessage}`;
+
+            // Open WhatsApp
+            window.open(whatsappUrl, '_blank');
+
+            // Clear localStorage after sending
+            localStorage.removeItem('ecomdz_order');
+
+            // Update button to show it was sent
+            const btn = document.getElementById('confirmBtn');
+            btn.innerHTML = '✓ Commande envoyée !';
+            btn.style.background = 'linear-gradient(135deg, var(--green-1), var(--green-2))';
+            btn.disabled = true;
+            btn.style.cursor = 'not-allowed';
+        });
+    </script>
+
+</body>
+
+</html>
