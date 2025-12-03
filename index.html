@@ -1061,9 +1061,9 @@
 
 
           <div class="input-group">
-            <label>Email</label>
-            <input type="tel" name="name" placeholder="Email@email.com" required>
-          </div>
+  <label>Email</label>
+  <input type="email" name="email" placeholder="Email@email.com" required>
+        </div>
 
           <div class="input-group">
             <label>Nom souhaité pour la boutique</label>
@@ -1217,7 +1217,7 @@
       const plan = document.querySelector('input[name="plan"]:checked').value;
       const shopName = document.querySelector('input[name="shopname"]').value;
       const userName = document.querySelector('input[name="name"]').value;
-      const userName = document.querySelector('input[name="name"]').value;
+      const userEmail = document.querySelector('input[name="email"]').value;
       const activity = document.querySelector('select[name="activity"]').value;
       const otherActivity = document.querySelector('textarea[name="otherActivity"]').value;
 
@@ -1228,7 +1228,7 @@
         plan: plan,
         shopName: shopName,
         userName: userName,
-        userName: userName,
+        userEmail: userEmail,
         activity: finalActivity
       };
       localStorage.setItem('ecomdz_order', JSON.stringify(orderData));
@@ -1241,6 +1241,7 @@
 </body>
 
 </html>
+
 
 
 
