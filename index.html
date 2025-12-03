@@ -1062,7 +1062,7 @@
 
           <div class="input-group">
             <label>Email</label>
-            <input type="tel" name="phone" placeholder="Email@email.com" required>
+            <input type="tel" name="name" placeholder="Email@email.com" required>
           </div>
 
           <div class="input-group">
@@ -1217,7 +1217,7 @@
       const plan = document.querySelector('input[name="plan"]:checked').value;
       const shopName = document.querySelector('input[name="shopname"]').value;
       const userName = document.querySelector('input[name="name"]').value;
-      const phone = document.querySelector('input[name="phone"]').value;
+      const userName = document.querySelector('input[name="name"]').value;
       const activity = document.querySelector('select[name="activity"]').value;
       const otherActivity = document.querySelector('textarea[name="otherActivity"]').value;
 
@@ -1228,7 +1228,7 @@
         plan: plan,
         shopName: shopName,
         userName: userName,
-        phone: phone,
+        userName: userName,
         activity: finalActivity
       };
       localStorage.setItem('ecomdz_order', JSON.stringify(orderData));
@@ -1241,6 +1241,7 @@
 </body>
 
 </html>
+
 
 
 
