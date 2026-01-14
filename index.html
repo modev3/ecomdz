@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>Ecomdz — Liens Officiels</title>
+    <title>StockMaster — Demande de Démo</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -129,14 +129,15 @@
             box-shadow: 0 5px 15px var(--brand-glow);
         }
 
-        /* --- LINKS LIST --- */
-        .links {
+        /* --- FEATURES LIST --- */
+        .features {
             display: flex;
             flex-direction: column;
             gap: 12px;
+            margin-bottom: 25px;
         }
 
-        .link-card {
+        .feature-card {
             position: relative;
             display: flex;
             align-items: center;
@@ -144,41 +145,42 @@
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 16px;
-            text-decoration: none;
             color: var(--text-main);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
-            overflow: hidden;
             animation: fadeInUp 0.6s ease-out backwards;
         }
 
-        .link-card:nth-child(1) {
+        .feature-card:nth-child(1) {
             animation-delay: 0.1s;
         }
 
-        .link-card:nth-child(2) {
+        .feature-card:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+
+        .feature-card:nth-child(3) {
             animation-delay: 0.2s;
         }
 
-        .link-card:nth-child(3) {
+        .feature-card:nth-child(4) {
+            animation-delay: 0.25s;
+        }
+
+        .feature-card:nth-child(5) {
             animation-delay: 0.3s;
         }
 
-        .link-card:nth-child(4) {
+        .feature-card:nth-child(6) {
+            animation-delay: 0.35s;
+        }
+
+        .feature-card:nth-child(7) {
             animation-delay: 0.4s;
         }
 
-        .link-card:hover {
-            transform: translateY(-2px) scale(1.01);
-            background: rgba(255, 255, 255, 0.06);
-            border-color: var(--brand-color);
-            box-shadow: 0 10px 30px -10px rgba(0, 230, 118, 0.2);
-        }
-
-        .link-card.highlight {
-            border: 1px solid rgba(0, 230, 118, 0.3);
-            background: rgba(0, 230, 118, 0.05);
+        .feature-card:nth-child(8) {
+            animation-delay: 0.45s;
         }
 
         .icon-box {
@@ -191,48 +193,26 @@
             justify-content: center;
             margin-right: 15px;
             flex-shrink: 0;
-            color: var(--text-muted);
-            transition: all 0.3s ease;
-        }
-
-        .link-card:hover .icon-box {
             color: var(--brand-color);
         }
 
-        .highlight .icon-box {
-            background: var(--brand-gradient);
-            color: black;
-        }
-
-        .link-info {
+        .feature-info {
             flex: 1;
         }
 
-        .link-title {
+        .feature-title {
             font-weight: 600;
             font-size: 15px;
             display: block;
             margin-bottom: 2px;
         }
 
-        .link-desc {
+        .feature-desc {
             font-size: 11px;
             color: var(--text-muted);
         }
 
-        .arrow {
-            opacity: 0;
-            transform: translateX(-10px);
-            transition: all 0.3s ease;
-            color: var(--brand-color);
-        }
-
-        .link-card:hover .arrow {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* --- BUTTON COMMANDER (CTA) --- */
+        /* --- BUTTON DEMANDER (CTA) --- */
         .cta-container {
             margin-top: 25px;
             animation: fadeInUp 0.8s ease-out 0.5s backwards;
@@ -299,7 +279,7 @@
         }
 
         .form-container.active {
-            max-height: 1000px;
+            max-height: 1200px;
             /* Arbitrary large height */
             border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 25px;
@@ -336,6 +316,14 @@
             font-weight: 600;
         }
 
+        .form-label .optional {
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.3);
+            text-transform: none;
+            font-weight: 400;
+            margin-left: 5px;
+        }
+
         .form-input,
         .form-select {
             width: 100%;
@@ -356,51 +344,8 @@
             background: rgba(0, 230, 118, 0.05);
         }
 
-        /* Radio Plans */
-        .plans-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .plan-option {
-            cursor: pointer;
-            position: relative;
-        }
-
-        .plan-option input {
-            display: none;
-        }
-
-        .plan-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 10px;
-            text-align: center;
-            transition: all 0.2s;
-        }
-
-        .plan-name {
-            font-size: 12px;
-            font-weight: bold;
-            display: block;
-            margin-bottom: 2px;
-        }
-
-        .plan-price {
-            font-size: 10px;
-            color: var(--text-muted);
-        }
-
-        .plan-option input:checked+.plan-card {
-            border-color: var(--brand-color);
-            background: rgba(0, 230, 118, 0.1);
-        }
-
-        .plan-option input:checked+.plan-card .plan-name {
-            color: var(--brand-color);
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.3);
         }
 
         .submit-btn {
@@ -454,6 +399,8 @@
             transform: translateY(20px);
             transition: transform 0.3s ease;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
         .modal-overlay.active .modal-content {
@@ -612,6 +559,23 @@
                 padding: 20px;
                 max-width: 90%;
             }
+
+            .feature-card {
+                padding: 12px;
+            }
+        }
+
+        /* Two column grid for optional fields */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        @media (max-width: 400px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -623,155 +587,155 @@
         <header class="header">
             <div class="logo-wrapper">
                 <div class="logo-text-box">
-                    🛒
+                    📦
                 </div>
             </div>
 
-            <h1>EcomDz</h1>
-            <p class="tagline">Clique sur le bouton commander maintenant</p>
+            <h1>Stock Master</h1>
+            <p class="tagline">Logiciel de gestion de stock & facturation</p>
 
             <div class="social-row">
-                <a href="https://www.tiktok.com/@ecomdznet" target="_blank" class="social-btn" title="TikTok">
-                    <i data-lucide="video" style="width: 20px; height: 20px;"></i>
+                <a href="https://wa.me/213540731540" target="_blank" class="social-btn" title="WhatsApp">
+                    <i data-lucide="message-circle" style="width: 20px; height: 20px;"></i>
                 </a>
-                <a href="https://www.instagram.com/ecomdznet" target="_blank" class="social-btn" title="Instagram">
-                    <i data-lucide="instagram" style="width: 20px; height: 20px;"></i>
-                </a>
-                <a href="https://www.facebook.com/share/1YuSJfZHnv/" target="_blank" class="social-btn"
-                    title="Facebook">
-                    <i data-lucide="facebook" style="width: 20px; height: 20px;"></i>
+                <a href="mailto:contact@stockprodz.com" class="social-btn" title="Email">
+                    <i data-lucide="mail" style="width: 20px; height: 20px;"></i>
                 </a>
             </div>
         </header>
 
-        <div class="links">
+        <!-- FEATURES LIST -->
+        <div class="features">
 
-            <a href="https://www.tiktok.com/@ecomdznet" target="_blank" class="link-card">
+            <div class="feature-card">
                 <div class="icon-box">
-                    <i data-lucide="video"></i>
+                    <i data-lucide="truck"></i>
                 </div>
-                <div class="link-info">
-                    <span class="link-title">TikTok</span>
-                    <span class="link-desc">Shorts & Astuces E-commerce</span>
+                <div class="feature-info">
+                    <span class="feature-title">Bons de Livraison & Commande</span>
+                    <span class="feature-desc">Gérez vos entrées et sorties de stock</span>
                 </div>
-                <div class="arrow">→</div>
-            </a>
+            </div>
 
-            <a href="https://www.instagram.com/ecomdznet" target="_blank" class="link-card">
+            <div class="feature-card">
                 <div class="icon-box">
-                    <i data-lucide="instagram"></i>
+                    <i data-lucide="rotate-ccw"></i>
                 </div>
-                <div class="link-info">
-                    <span class="link-title">Instagram</span>
-                    <span class="link-desc">Reels, Carrousels & Actualités</span>
+                <div class="feature-info">
+                    <span class="feature-title">Retours</span>
+                    <span class="feature-desc">Suivez les retours produits facilement</span>
                 </div>
-                <div class="arrow">→</div>
-            </a>
+            </div>
 
-            <a href="https://www.facebook.com/share/1YuSJfZHnv/" target="_blank" class="link-card">
+            <div class="feature-card">
                 <div class="icon-box">
-                    <i data-lucide="facebook"></i>
+                    <i data-lucide="file-text"></i>
                 </div>
-                <div class="link-info">
-                    <span class="link-title">Facebook</span>
-                    <span class="link-desc">Rejoins la communauté</span>
+                <div class="feature-info">
+                    <span class="feature-title">Devis & Factures</span>
+                    <span class="feature-desc">Créez vos documents en quelques clics</span>
                 </div>
-                <div class="arrow">→</div>
-            </a>
+            </div>
 
-            <a href="https://wa.me/213540731540" target="_blank" class="link-card highlight">
+            <div class="feature-card">
                 <div class="icon-box">
-                    <i data-lucide="message-circle"></i>
+                    <i data-lucide="bar-chart-3"></i>
                 </div>
-                <div class="link-info">
-                    <span class="link-title" style="color:var(--brand-color)">WhatsApp</span>
-                    <span class="link-desc">Contactez-nous directement</span>
+                <div class="feature-info">
+                    <span class="feature-title">Rapports</span>
+                    <span class="feature-desc">Analysez vos performances</span>
                 </div>
-                <div class="arrow">→</div>
-            </a>
+            </div>
 
-            <a href="mailto:contact@dzmania.com" class="link-card">
+            <div class="feature-card">
                 <div class="icon-box">
-                    <i data-lucide="mail"></i>
+                    <i data-lucide="credit-card"></i>
                 </div>
-                <div class="link-info">
-                    <span class="link-title">Email</span>
-                    <span class="link-desc">Contactez-nous par email</span>
+                <div class="feature-info">
+                    <span class="feature-title">Gestion des Paiements</span>
+                    <span class="feature-desc">Fournisseurs & Clients</span>
                 </div>
-                <div class="arrow">→</div>
-            </a>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon-box">
+                    <i data-lucide="wallet"></i>
+                </div>
+                <div class="feature-info">
+                    <span class="feature-title">Dettes & Créances</span>
+                    <span class="feature-desc">Suivez ce que vous devez et ce qu'on vous doit</span>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon-box">
+                    <i data-lucide="users"></i>
+                </div>
+                <div class="feature-info">
+                    <span class="feature-title">Gestion des Employés</span>
+                    <span class="feature-desc">Administrez votre équipe</span>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon-box">
+                    <i data-lucide="banknote"></i>
+                </div>
+                <div class="feature-info">
+                    <span class="feature-title">Gestion des Salaires</span>
+                    <span class="feature-desc">Salaires & Avances sur Salaire</span>
+                </div>
+            </div>
 
         </div>
 
         <div class="cta-container">
             <button class="cta-btn" id="toggleFormBtn">
-                Commander Maintenant
+                📋 Demander une Démo Gratuite
             </button>
         </div>
 
         <!-- INLINE FORM CONTAINER -->
         <div id="inlineFormContainer" class="form-container">
             <div class="form-heading">
-                <h2>Lancer ma boutique</h2>
-                <p>Configurez votre projet en quelques clics</p>
+                <h2>Demande de Démonstration</h2>
+                <p>Remplissez le formulaire pour recevoir votre démo</p>
             </div>
 
-            <form id="expressOrderForm">
-
-                <div class="plans-grid">
-                    <label class="plan-option">
-                        <input type="radio" name="plan" value="Gratuit" checked>
-                        <div class="plan-card">
-                            <span class="plan-name">Gratuit</span>
-                            <span class="plan-price">0 DA</span>
-                        </div>
-                    </label>
-                    <label class="plan-option">
-                        <input type="radio" name="plan" value="Basic">
-                        <div class="plan-card">
-                            <span class="plan-name">Pro</span>
-                            <span class="plan-price">1000 DA</span>
-                        </div>
-                    </label>
-                    <label class="plan-option">
-                        <input type="radio" name="plan" value="Basic + IA">
-                        <div class="plan-card">
-                            <span class="plan-name">IA +</span>
-                            <span class="plan-price">2500 DA</span>
-                        </div>
-                    </label>
-                </div>
+            <form id="demoRequestForm">
 
                 <div class="form-group">
-                    <label class="form-label">Nom complet</label>
-                    <input type="text" name="name" class="form-input" placeholder="Votre nom" required>
+                    <label class="form-label">Nom de l'entreprise</label>
+                    <input type="text" name="entreprise" class="form-input" placeholder="Ex: SARL Mon Entreprise"
+                        required>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Email</label>
-                    <input type="email" name="email" class="form-input" placeholder="exemple@gmail.com" required>
+                    <input type="email" name="email" class="form-input" placeholder="contact@entreprise.com" required>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">Nom de la boutique</label>
-                    <input type="text" name="shopname" class="form-input" placeholder="Ma Boutique" required>
+                    <label class="form-label">Nombre de produits</label>
+                    <input type="number" name="produits" class="form-input" placeholder="Ex: 500" min="1" required>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">Activité</label>
-                    <select name="activity" id="activitySelect" class="form-select">
-                        <option value="Mode">Mode & Vêtements</option>
-                        <option value="High-Tech">High-Tech</option>
-                        <option value="Cosmetique">Cosmétique</option>
-                        <option value="Autre">Autre</option>
-                    </select>
+                    <label class="form-label">Nombre d'employés</label>
+                    <input type="number" name="employes" class="form-input" placeholder="Ex: 10" min="1" required>
                 </div>
 
-                <!-- Hidden Input for Other -->
-                <div class="form-group" id="otherActivityGroup" style="display: none;">
-                    <label class="form-label">Précisez votre activité</label>
-                    <input type="text" name="other_activity" id="otherActivityInput" class="form-input"
-                        placeholder="Ex: Restauration, Services...">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Nombre de clients <span class="optional">(facultatif)</span></label>
+                        <input type="number" name="clients" class="form-input" placeholder="Ex: 200" min="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Nombre de fournisseurs <span
+                                class="optional">(facultatif)</span></label>
+                        <input type="number" name="fournisseurs" class="form-input" placeholder="Ex: 30" min="0">
+                    </div>
                 </div>
 
                 <button type="submit" class="submit-btn" style="background: var(--brand-gradient);">
@@ -781,7 +745,7 @@
         </div>
 
         <footer style="margin-top: 40px; text-align: center; color: rgba(255,255,255,0.2); font-size: 12px;">
-            © Ecomdz — Prépare ta boutique
+            © StockPro DZ — La Solution Algérienne de Gestion de Stock
         </footer>
 
     </div>
@@ -796,32 +760,31 @@
 
             <div class="recap-list">
                 <div class="recap-item">
-                    <span class="recap-label">Plan Choisi</span>
-                    <span class="recap-value" id="recap-plan">Basic</span>
+                    <span class="recap-label">Entreprise</span>
+                    <span class="recap-value" id="recap-entreprise">Mon Entreprise</span>
                 </div>
                 <div class="recap-item">
-                    <span class="recap-label">Coût estimé</span>
-                    <span class="recap-value" id="recap-price"
-                        style="color: var(--brand-color); font-weight: bold;">1000 DA</span>
+                    <span class="recap-label">Email</span>
+                    <span class="recap-value" id="recap-email">contact@entreprise.com</span>
                 </div>
                 <!-- Divider -->
                 <div class="recap-divider"></div>
 
                 <div class="recap-item">
-                    <span class="recap-label">Boutique</span>
-                    <span class="recap-value" id="recap-shop">Ma Boutique</span>
+                    <span class="recap-label">Nombre de produits</span>
+                    <span class="recap-value" id="recap-produits">500</span>
                 </div>
                 <div class="recap-item">
-                    <span class="recap-label">Nom</span>
-                    <span class="recap-value" id="recap-name">John Doe</span>
+                    <span class="recap-label">Nombre d'employés</span>
+                    <span class="recap-value" id="recap-employes">10</span>
                 </div>
-                <div class="recap-item">
-                    <span class="recap-label">Email</span>
-                    <span class="recap-value" id="recap-email">nom@email.com</span>
+                <div class="recap-item" id="recap-clients-row" style="display: none;">
+                    <span class="recap-label">Nombre de clients</span>
+                    <span class="recap-value" id="recap-clients">-</span>
                 </div>
-                <div class="recap-item">
-                    <span class="recap-label">Activité</span>
-                    <span class="recap-value" id="recap-activity">Mode</span>
+                <div class="recap-item" id="recap-fournisseurs-row" style="display: none;">
+                    <span class="recap-label">Nombre de fournisseurs</span>
+                    <span class="recap-value" id="recap-fournisseurs">-</span>
                 </div>
             </div>
 
@@ -830,7 +793,7 @@
                     style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2);">Modifier</button>
                 <button class="submit-btn" id="confirmOrderBtn"
                     style="background: var(--brand-gradient); color: black;">
-                    Confirmer la commande
+                    Confirmer la demande
                 </button>
             </div>
         </div>
@@ -842,10 +805,10 @@
             <div class="success-icon">
                 <i data-lucide="check" style="width: 32px; height: 32px;"></i>
             </div>
-            <h3 class="success-title">Commande Reçue !</h3>
+            <h3 class="success-title">Demande Envoyée !</h3>
             <p class="success-msg">
-                Merci de votre confiance. <br>
-                Nous avons bien reçu votre demande. Un conseiller vous contactera très rapidement.
+                Merci de votre intérêt pour StockPro DZ. <br>
+                Un conseiller vous contactera très rapidement pour planifier votre démonstration.
             </p>
             <button class="close-success" id="closeSuccess">Fermer</button>
         </div>
@@ -858,11 +821,7 @@
         // Elements
         const toggleBtn = document.getElementById('toggleFormBtn');
         const formContainer = document.getElementById('inlineFormContainer');
-        const form = document.getElementById('expressOrderForm');
-
-        const activitySelect = document.getElementById('activitySelect');
-        const otherActivityGroup = document.getElementById('otherActivityGroup');
-        const otherActivityInput = document.getElementById('otherActivityInput');
+        const form = document.getElementById('demoRequestForm');
 
         const recapModal = document.getElementById('recapModal');
         const editBtn = document.getElementById('editBtn');
@@ -877,22 +836,8 @@
         toggleBtn.addEventListener('click', () => {
             formContainer.classList.toggle('active');
             if (formContainer.classList.contains('active')) {
-                // toggleBtn.style.display = 'none'; // Keep button visible to toggle back if needed? 
-                // Or maybe change text?
                 // Let's scroll to the form
                 setTimeout(() => formContainer.scrollIntoView({ behavior: 'smooth' }), 100);
-            }
-        });
-
-        // 2. Toggle Other Activity
-        activitySelect.addEventListener('change', () => {
-            if (activitySelect.value === 'Autre') {
-                otherActivityGroup.style.display = 'block';
-                otherActivityInput.required = true;
-            } else {
-                otherActivityGroup.style.display = 'none';
-                otherActivityInput.required = false;
-                otherActivityInput.value = '';
             }
         });
 
@@ -904,25 +849,29 @@
             const formData = new FormData(form);
             currentOrderData = Object.fromEntries(formData);
 
-            // Handle Other Logic
-            let displayActivity = currentOrderData.activity;
-            if (currentOrderData.activity === 'Autre' && currentOrderData.other_activity) {
-                displayActivity = currentOrderData.other_activity;
-            }
-            currentOrderData.finalActivity = displayActivity;
-
             // Populate Recap
-            document.getElementById('recap-plan').innerText = currentOrderData.plan;
-            document.getElementById('recap-shop').innerText = currentOrderData.shopname;
-            document.getElementById('recap-name').innerText = currentOrderData.name;
+            document.getElementById('recap-entreprise').innerText = currentOrderData.entreprise;
             document.getElementById('recap-email').innerText = currentOrderData.email;
-            document.getElementById('recap-activity').innerText = displayActivity;
+            document.getElementById('recap-produits').innerText = currentOrderData.produits;
+            document.getElementById('recap-employes').innerText = currentOrderData.employes;
 
-            // Simple Price Logic
-            let price = "0 DA";
-            if (currentOrderData.plan === 'Basic') price = "1000 DA/mois";
-            if (currentOrderData.plan === 'Basic + IA') price = "2500 DA/mois";
-            document.getElementById('recap-price').innerText = price;
+            // Optional fields
+            const clientsRow = document.getElementById('recap-clients-row');
+            const fournisseursRow = document.getElementById('recap-fournisseurs-row');
+
+            if (currentOrderData.clients && currentOrderData.clients.trim() !== '') {
+                document.getElementById('recap-clients').innerText = currentOrderData.clients;
+                clientsRow.style.display = 'flex';
+            } else {
+                clientsRow.style.display = 'none';
+            }
+
+            if (currentOrderData.fournisseurs && currentOrderData.fournisseurs.trim() !== '') {
+                document.getElementById('recap-fournisseurs').innerText = currentOrderData.fournisseurs;
+                fournisseursRow.style.display = 'flex';
+            } else {
+                fournisseursRow.style.display = 'none';
+            }
 
             // Show Modal
             recapModal.classList.add('active');
@@ -942,15 +891,24 @@
             const data = currentOrderData;
             const phoneNumber = "213540731540";
 
-            const text = `*Nouvelle Commande EcomDZ !* 🚀%0A` +
+            // Build optional info
+            let optionalInfo = '';
+            if (data.clients && data.clients.trim() !== '') {
+                optionalInfo += `👥 *Clients:* ${data.clients}%0A`;
+            }
+            if (data.fournisseurs && data.fournisseurs.trim() !== '') {
+                optionalInfo += `🏭 *Fournisseurs:* ${data.fournisseurs}%0A`;
+            }
+
+            const text = `*Demande de Démo StockPro DZ* 📦%0A` +
                 `---------------------------%0A` +
-                `📌 *Plan:* ${data.plan}%0A` +
-                `👤 *Nom:* ${data.name}%0A` +
+                `🏢 *Entreprise:* ${data.entreprise}%0A` +
                 `📧 *Email:* ${data.email}%0A` +
-                `🛍️ *Boutique:* ${data.shopname}%0A` +
-                `💼 *Activité:* ${data.finalActivity}%0A` +
+                `📦 *Produits:* ${data.produits}%0A` +
+                `👨‍💼 *Employés:* ${data.employes}%0A` +
+                optionalInfo +
                 `---------------------------%0A` +
-                `Je souhaite confirmer ma commande.`;
+                `Je souhaite demander une démonstration gratuite de votre logiciel de gestion de stock.`;
 
             const whatsappURL = `https://wa.me/${phoneNumber}?text=${text}`;
 
