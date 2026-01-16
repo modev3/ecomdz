@@ -214,52 +214,48 @@
             letter-spacing: 1px;
         }
 
-        /* --- FILE UPLOAD --- */
-        .file-upload-area {
-            border: 2px dashed var(--card-border);
-            border-radius: 12px;
-            padding: 30px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s ease;
+        /* --- TRANSACTION INPUT --- */
+        .transaction-input-area {
             background: var(--bg-light);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 20px;
         }
 
-        .file-upload-area:hover {
-            border-color: var(--accent-teal);
-            background: white;
-        }
-
-        .file-upload-area.has-file {
-            border-color: var(--success-color);
-            background: rgba(34, 197, 94, 0.05);
-        }
-
-        .file-upload-area .icon {
-            width: 48px;
-            height: 48px;
-            margin: 0 auto 10px;
+        .transaction-input-area label {
+            display: block;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             color: var(--text-muted);
-        }
-
-        .file-upload-area.has-file .icon {
-            color: var(--success-color);
-        }
-
-        .file-upload-area p {
-            font-size: 14px;
-            color: var(--text-muted);
-        }
-
-        .file-upload-area .file-name {
             font-weight: 600;
-            color: var(--text-main);
-            margin-top: 8px;
-            word-break: break-all;
+            margin-bottom: 10px;
         }
 
-        .file-upload-area input[type="file"] {
-            display: none;
+        .transaction-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: var(--font-main);
+            background: white;
+            color: var(--text-main);
+            outline: none;
+            transition: all 0.2s;
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .transaction-input:focus {
+            border-color: var(--accent-teal);
+            box-shadow: 0 0 0 3px rgba(90, 74, 63, 0.1);
+        }
+
+        .transaction-input::placeholder {
+            color: var(--text-muted);
+            font-weight: 400;
         }
 
         /* --- DOMAIN SEARCH --- */
@@ -639,19 +635,20 @@
                 </div>
             </div>
 
-            <!-- STEP 2: Upload Proof -->
+            <!-- STEP 2: Transaction Number -->
             <div class="step-section">
                 <div class="step-header">
                     <div class="step-number" id="step2Number">2</div>
-                    <span class="step-title">Envoyez la preuve de paiement</span>
+                    <span class="step-title">Numéro de référence BaridiMob</span>
                 </div>
 
-                <div class="file-upload-area" id="fileUploadArea">
-                    <i data-lucide="upload-cloud" class="icon" style="width: 48px; height: 48px;"></i>
-                    <p>Cliquez ou glissez votre fichier ici</p>
-                    <p style="font-size: 12px; margin-top: 5px;">(PDF, PNG, JPG - Max 5MB)</p>
-                    <p class="file-name" id="fileName"></p>
-                    <input type="file" id="proofFile" accept=".pdf,.png,.jpg,.jpeg" />
+                <div class="transaction-input-area">
+                    <label>Entrez le numéro de référence</label>
+                    <input type="text" id="transactionNumber" class="transaction-input" placeholder="Ex: 123456789012"
+                        maxlength="20">
+                    <p style="font-size: 12px; color: var(--text-muted); margin-top: 10px; text-align: center;">
+                        Vous trouverez ce numéro dans la confirmation de votre virement BaridiMob
+                    </p>
                 </div>
             </div>
 
@@ -729,9 +726,7 @@
         lucide.createIcons();
 
         // Elements
-        const fileUploadArea = document.getElementById('fileUploadArea');
-        const proofFileInput = document.getElementById('proofFile');
-        const fileNameDisplay = document.getElementById('fileName');
+        const transactionInput = document.getElementById('transactionNumber');
         const domainSection = document.getElementById('domainSection');
         const subdomainInput = document.getElementById('subdomainInput');
         const confirmDomainBtn = document.getElementById('confirmDomainBtn');
@@ -742,7 +737,7 @@
         const closeSuccessBtn = document.getElementById('closeSuccess');
 
         // State
-        let uploadedFile = null;
+        let transactionNumber = null;
         let selectedDomain = null;
 
         // Step numbers
@@ -750,73 +745,35 @@
         const step2Number = document.getElementById('step2Number');
         const step3Number = document.getElementById('step3Number');
 
-        // File Upload Area Click
-        fileUploadArea.addEventListener('click', () => {
-            proofFileInput.click();
-        });
+        // Transaction Number Input
+        transactionInput.addEventListener('input', (e) => {
+            // Allow only numbers
+            e.target.value = e.target.value.replace(/[^0-9]/g, '');
 
-        // Drag and Drop
-        fileUploadArea.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            fileUploadArea.style.borderColor = 'var(--accent-teal)';
-            fileUploadArea.style.background = 'white';
-        });
+            const value = e.target.value.trim();
 
-        fileUploadArea.addEventListener('dragleave', (e) => {
-            e.preventDefault();
-            if (!uploadedFile) {
-                fileUploadArea.style.borderColor = '';
-                fileUploadArea.style.background = '';
+            if (value.length >= 6) {
+                transactionNumber = value;
+
+                // Mark step 2 as completed
+                step2Number.classList.add('completed');
+                step2Number.innerHTML = '<i data-lucide="check" style="width: 18px; height: 18px;"></i>';
+                lucide.createIcons();
+
+                // Show domain section
+                domainSection.classList.add('active');
+
+                // Scroll to domain section
+                setTimeout(() => {
+                    domainSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+            } else {
+                transactionNumber = null;
+                domainSection.classList.remove('active');
+                step2Number.classList.remove('completed');
+                step2Number.innerHTML = '2';
             }
         });
-
-        fileUploadArea.addEventListener('drop', (e) => {
-            e.preventDefault();
-            const files = e.dataTransfer.files;
-            if (files.length > 0) {
-                handleFileSelect(files[0]);
-            }
-        });
-
-        // File Input Change
-        proofFileInput.addEventListener('change', (e) => {
-            if (e.target.files.length > 0) {
-                handleFileSelect(e.target.files[0]);
-            }
-        });
-
-        // Handle file selection
-        function handleFileSelect(file) {
-            // Validate file type
-            const allowedTypes = ['application/pdf', 'image/png', 'image/jpeg', 'image/jpg'];
-            if (!allowedTypes.includes(file.type)) {
-                alert('Format non supporté. Utilisez PDF, PNG ou JPG.');
-                return;
-            }
-
-            // Validate size (5MB)
-            if (file.size > 5 * 1024 * 1024) {
-                alert('Fichier trop volumineux (max 5MB).');
-                return;
-            }
-
-            uploadedFile = file;
-            fileNameDisplay.textContent = file.name;
-            fileUploadArea.classList.add('has-file');
-
-            // Mark step 2 as completed
-            step2Number.classList.add('completed');
-            step2Number.innerHTML = '<i data-lucide="check" style="width: 18px; height: 18px;"></i>';
-            lucide.createIcons();
-
-            // Show domain section
-            domainSection.classList.add('active');
-
-            // Scroll to domain section
-            setTimeout(() => {
-                domainSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 300);
-        }
 
         // Subdomain Input Validation
         subdomainInput.addEventListener('input', (e) => {
@@ -850,12 +807,12 @@
 
         // Submit Order
         submitOrderBtn.addEventListener('click', () => {
-            if (!uploadedFile || !selectedDomain) return;
+            if (!transactionNumber || !selectedDomain) return;
 
             const phoneNumber = "213540731540";
             const message = `Bonjour, je souhaite commander Stock Master.\n\n` +
                 `📦 Domaine choisi : ${selectedDomain}\n` +
-                `📎 Preuve de paiement : (Voir pièce jointe)`;
+                `� N° Référence BaridiMob : ${transactionNumber}`;
 
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
